@@ -1,5 +1,32 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "mercadapp", '#', id: "logo" %>
+   <!-- <%= link_to "mercadapp", '#', id: "logo" %> -->
+
+   <nav>
+     <ul class="nav navbar-nav nvabar-right">
+       <li> <%= link_to "Sobre", sobre_path %> </li>
+       
+       <% if logged_in? %>
+
+         <li> <%= link_to "Usuários", '#' %> </li>
+         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Conta <b class="caret"> </b> </a>
+           <ul class="dropdown-menu">
+             <li> <%= link_to "Informações Usuário", current_user %> </li>
+             <li> <%= link_to "Configurações", '#' %> </li>
+
+             <li class="divider">  </li>
+
+             <li> <%= link_to "Sair", logout_path, method: :delet %> </li>
+           </ul>
+
+       <% else %>
+
+         <li> <%= link_to "Entrar", login_path %> </li>
+
+       <% end %>
+
+     </ul>
+
+   </nav>
   </div>
 </header>
